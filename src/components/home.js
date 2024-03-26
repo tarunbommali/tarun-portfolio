@@ -23,12 +23,12 @@ class Home extends Component {
 
   renderProfileIntroductionAndImageSection() {
     return (
-      <div className="flex justify-around items-center mt-6 ">
-        <div className="flex flex-col font-semibold">
-          <h1 className="profile-message-text">hy,Hello!</h1>
+      <div className="flex flex-row justify-around items-center mt-2 lg:flex flex-col">
+        <div className="flex flex-col font-semibold order-2 ">
+          <h1 className="profile-message-text py-2">hy,Hello!</h1>
           <h1 className="profile-name-text">
             I'm 
-            <span className="text-blue-400  text-[76px] font-serif">TARUN BOMMALI</span>
+            <span className="text-blue-400  text-[46px] lg:text-[62px] font-serif">TARUN BOMMALI</span>
           </h1>
           
           <TypewriterComponent />
@@ -37,12 +37,12 @@ class Home extends Component {
           type="button"
           onClick={this.onClickGenerateButton}
           className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110   duration-300 ..."
-        >
+        ><div>
           <img
             src={PROFILE_IMG_URL}
             alt="profile"
-            className="rounded-full w-72 h-72  border-double border-4 border-sky-500"
-          />
+            className="rounded-full w-52 h-52  border-double border-4 border-sky-500 order-1 lg:w-62 h-62"
+          /></div>
         </button>
       </div>
     );
@@ -50,7 +50,7 @@ class Home extends Component {
 
   renderContactAndResumeSection() {
     return (
-      <div className="flex flex-col items-center mt-20 hover:transform: scale(0.95);">
+      <div className="flex flex-col items-center mt-2 hover:transform: scale(0.95); lg:mt-10">
         <div className="flex">
           <a
             target="_blank"

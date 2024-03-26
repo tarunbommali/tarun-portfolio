@@ -24,7 +24,7 @@ const Header = () => {
         Tb.</div>
 
      
-      <ul className="flex items-center font-semibold">
+      <ul className=" hidden items-center font-semibold lg:flex block">
         {navMenuList.map((navMenuLink, index) => (
           <li
             key={index}

@@ -15,7 +15,7 @@ export default function MyAccordion() {
     
       {accordionData && accordionData.length > 0 ? (
         accordionData.map((dataItem) => (
-          <div className="flex flex-col w-[60%] bg-white m-2 p-2 px-5 rounded-md shadow-md	" key={dataItem.id}>
+          <div className="flex flex-col justify-start-start w-[90%] bg-white  rounded-md shadow-md m-1 p-2 px-3  lg:justify-center w-[60%] m-2 p-2 px-5" key={dataItem.id}>
             <div
               className="flex justify-between pb-2"
               onClick={() => handleSingleSelection(dataItem.id)} // Use arrow function to pass the id

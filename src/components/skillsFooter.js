@@ -3,13 +3,13 @@ import { FaLink } from "react-icons/fa";
 
 export default function SkillsFooter() {
   return (
-    <div className="flex justify-around  rounded-lg bg-[#f4f2ee]  absolute w-[100%] p-5	">
+    <div className="flex flex-col justify-start  rounded-lg bg-[#f4f2ee]  absolute w-[100%] p-5	sm:flex-row justify-around">
       <ul className="flex flex-col justify-start items-start">
-        <li className="text-[#191919] font-semibold self-start mb-2">
+        <li className="text-[#191919] font-semibold self-start  mb-0 mt-4 lg:mt-0 mb-2">
           <p>Certifications</p>
           <hr className="footer-subtitle-line" />
         </li>
-        <li className="flex items-center mt-2">
+        <li className="flex items-center">
           Namaste JavaScript by Akshay Saini
           <a
             href="https://res.cloudinary.com/drdgj0pch/image/upload/v1708490336/Frontend/certificates/certificate_y6bbav.png"
@@ -20,8 +20,8 @@ export default function SkillsFooter() {
             <FaLink className="redirect-link-icon" />
           </a>
         </li>
-        <li className="flex items-center mt-2">
-          PROGRAMMING FOUNDATIONS WITH PYTHON
+        <li className="flex items-center">
+          PYTHON FOUNDATIONS
           <a
             href="https://res.cloudinary.com/drdgj0pch/image/upload/v1708510124/Frontend/certificates/Python_page-0001_tnrefc.jpg"
             target="_blank"
@@ -31,7 +31,7 @@ export default function SkillsFooter() {
             <FaLink className="redirect-link-icon" />
           </a>
         </li>
-        <li className="flex items-center mt-2">
+        <li className="flex items-center">
           BUILD YOUR OWN RESPONSIVE WEBSITE
           <a
             href="https://res.cloudinary.com/drdgj0pch/image/upload/v1708510117/Frontend/certificates/Responsive_page-0001_qwmskz.jpg"
@@ -42,7 +42,7 @@ export default function SkillsFooter() {
             <FaLink className="redirect-link-icon" />
           </a>
         </li>
-        <li className="flex items-center mt-2">
+        <li className="flex items-center">
           INTRODUCTION TO DATABASES
           <a
             href="https://res.cloudinary.com/drdgj0pch/image/upload/v1708510099/Frontend/certificates/Database_page-0001_wn2q21.jpg"
@@ -53,7 +53,7 @@ export default function SkillsFooter() {
             <FaLink className="redirect-link-icon" />
           </a>
         </li>
-        <li className="flex items-center mt-2">
+        <li className="flex items-center">
           BUILD YOUR OWN STATIC WEBSITE
           <a
             href="https://res.cloudinary.com/drdgj0pch/image/upload/v1708510109/Frontend/certificates/Static_page-0001_klnsi8.jpg"
@@ -67,7 +67,7 @@ export default function SkillsFooter() {
       </ul>
 
       <ul className="flex flex-col justify-start items-start">
-        <li className="text-[#191919] font-semibold mb-2">
+        <li className="text-[#191919] font-semibold mb-0 mt-4 lg:mt-0 mb-2">
           <p>Solved Popular Coding Question</p>
           <hr className="footer-subtitle-line" />
         </li>
@@ -82,7 +82,7 @@ export default function SkillsFooter() {
       </ul>
 
       <ul className="flex flex-col justify-start items-start">
-        <li className="text-[#191919] font-semibold mb-2">
+        <li className="text-[#191919] font-semibold  mb-0 mt-4 lg:mt-0 mb-2">
           <p>Coding Profile</p>
           <hr className="footer-subtitle-line" />
         </li>

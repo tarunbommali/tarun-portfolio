@@ -9,10 +9,8 @@ const TypewriterComponent = () => {
       strings: ['Software Devloper', 'Frontend Devloper' , 'Open Source Contributor' , 'React Devloper', 'Debuggable'],
       autoStart: true,
       loop: true,
-      wrapperClassName: "text-[52px]",
-      
-      cursorClassName	: 'text-[42px]',
-
+      wrapperClassName: "text-[28px] md:text-[52px]",
+      cursorClassName	: 'text-[28px] md:text-[42px]',
       delay : '250'
 
       

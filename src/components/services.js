@@ -6,10 +6,10 @@ function Services() {
     <div className="flex flex-col">
       <>
         <h1 className="font-semibold p-3"> What I Can Do?</h1>
-        <div className="flex flex-wrap m-5 ">
+        <ul className="flex flex-row flex-wrap items-center">
     {
       servicesData.map(service => (
-        <li key={service.id} className="flex justify-center flex-col items-center  bg-[#f5fafd] p-3 ml-3 w-[200px] h-15 ">
+        <li key={service.id} className="flex flex-col items-center w-[400px] bg-white  rounded-md shadow-md m-2 p-2 px-3  lg:justify-center w-[200px] m-2 p-2 px-5">
             <img
               src={service.imgUrl}
               alt="...loading"
@@ -23,7 +23,7 @@ function Services() {
 
 
 
-        </div>
+        </ul>
 
         
       </>

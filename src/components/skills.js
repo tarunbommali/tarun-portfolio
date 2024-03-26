@@ -72,7 +72,7 @@ export default class Skills extends Component {
   render() {
     return (
       <>
-      <div className="flex justify-center min-h-screen bg-[#f4f2ee]">
+      <div className="flex justify-center  bg-[#f4f2ee]">
         <div className="w-[80%]">
           {this.renderSkillsList()}
           {this.renderSkillItemConcepts()}
