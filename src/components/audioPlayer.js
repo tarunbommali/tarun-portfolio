@@ -23,7 +23,7 @@ function AudioPlayer() {
 
   return (
     <>
-      <button onClick={togglePlayPause}>{isPlaying ? <FaPause/> : <FaPlay/>}</button>
+      <button className='outline-none border-none' onClick={togglePlayPause}>{isPlaying ? <FaPause/> : <FaPlay/>}</button>
       <ReactAudioPlayer
         controls={false}
         ref={audioRef}

@@ -28,7 +28,7 @@ class Home extends Component {
           <h1 className="profile-message-text py-2">hy,Hello!</h1>
           <h1 className="profile-name-text">
             I'm 
-            <span className="text-blue-400  text-[46px] lg:text-[62px] font-serif">TARUN BOMMALI</span>
+            <span className="text-blue-400  text-[26px] lg:text-[62px] font-serif">TARUN BOMMALI</span>
           </h1>
           
           <TypewriterComponent />
@@ -41,7 +41,7 @@ class Home extends Component {
           <img
             src={PROFILE_IMG_URL}
             alt="profile"
-            className="rounded-full w-52 h-52  border-double border-4 border-sky-500 order-1 lg:w-62 h-62"
+            className="rounded-full  m-2 border-double border-4 border-sky-500 order-1 sm:w-56 h-56 md:w-65 h-65 "
           /></div>
         </button>
       </div>

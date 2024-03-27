@@ -72,7 +72,6 @@ export default function SkillsFooter() {
           <hr className="footer-subtitle-line" />
         </li>
         <li>Reverse string</li>
-        <li>Longest substring without repeating characters</li>
         <li>Longest common subsequence</li>
         <li>Container with most water</li>
         <li>Reverse linked list</li>
