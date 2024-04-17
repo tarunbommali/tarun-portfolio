@@ -5,8 +5,6 @@ import Home from "./components/home";
 import Projects from "./components/projects";
 import About from "./components/about";
 import Skills from "./components/skills";
-import Setting from "./components/setting";
-import "./App.css";
 import { AudioPlayerProvider } from "./context/audioPlayerContext";
 
 
@@ -21,7 +19,6 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/skills" element={<Skills />} />
-          <Route path="/setting" element={<Setting/>} />
         </Routes>
       </div>
     </Router>

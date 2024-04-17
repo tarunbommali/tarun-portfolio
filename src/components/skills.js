@@ -50,16 +50,16 @@ export default class Skills extends Component {
   renderSkillItemConcepts() {
     const { activeTopic } = this.state;
     return (
-      <div className="flex  flex-wrap bg-white m-5 p-5 rounded-md">
+      <div className="flex-wrap bg-white m-5 p-5 rounded-md hidden md:flex">
         {skillsList
           .filter(({ technology }) => technology === activeTopic)
           .map(({ id, technology, keyTopics }) => (
             <div key={id}>
-              <h3 className="flex font-semibold m-2">{technology}</h3>
+              <h3 className="flex font-bold m-2 text-2xl">{technology}</h3>
               <ul className="flex flex-wrap">
                 {Object.keys(keyTopics).map((topic, index) => (
-                  <li className="flex mx-2 w-[205px] py-2" key={index}>
-                    {topic}
+                  <li className="flex mx-3 w-[220px] py-2" key={index}>
+                   <h1 className="md:text-lg "> {topic}</h1>
                   </li>
                 ))}
               </ul>

@@ -116,7 +116,7 @@ const Header = () => {
           </li>
         ))}
         <li className="mx-5">
-          <AudioPlayer />
+          <AudioPlayer  />
         </li>
       </ul>
 

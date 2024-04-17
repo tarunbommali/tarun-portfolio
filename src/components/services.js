@@ -3,31 +3,22 @@ import { servicesData } from "../utils/servicesData";
 
 function Services() {
   return (
-    <div className="flex flex-col">
-      <>
-        <h1 className="font-semibold p-3"> What I Can Do?</h1>
-        <ul className="flex flex-row flex-wrap items-center">
-    {
-      servicesData.map(service => (
-        <li key={service.id} className="flex flex-col items-center w-[400px] bg-white  rounded-md shadow-md m-2 p-2 px-3  lg:justify-center w-[200px] m-2 p-2 px-5">
+    <div className="flex flex-col  items-center justify-center py-6  w-[100%]">
+      <h1  className="p-3 font-semibold text-lg md:text-3xl">What I Can Do?</h1>
+      <ul className='flex flex-wrap justify-around items-center px-2 my-1 w-[100%]'>
+        {servicesData.map((service, index) => (
+          <li key={index} className="item w-[80%] md:w-[30%] m-2 shadow-lg flex flex-col items-center p-4 hover:scale-105">
             <img
               src={service.imgUrl}
-              alt="...loading"
+              alt="icon"
               className="w-[90px] h-[90px]"
             />
-            <p className="font-semibold text-[#191919] pt-2">{service.displayText}</p>
-        </li>
-      ))
-    }
-         
-
-
-
-        </ul>
-
-        
-      </>
+            <div className="font-semibold text-[#191919] pt-2">{service.displayText}</div>
+          </li>
+        ))}
+      </ul>
     </div>
+    
   );
 }
 

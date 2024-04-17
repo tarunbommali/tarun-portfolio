@@ -11,11 +11,11 @@ export default function MyAccordion() {
   
   return (
     <div className="flex min-h-[100vh] flex-col mt-[18px] items-center py-3 ">
-        <h1 className="font-semibold mb-3">FAQ's</h1>
+        <h1 className="font-semibold mb-3 text-lg md:text-3xl">Common inquiries</h1>
     
       {accordionData && accordionData.length > 0 ? (
         accordionData.map((dataItem) => (
-          <div className="flex flex-col justify-start-start w-[90%] bg-white  rounded-md shadow-md m-1 p-2 px-3  lg:justify-center w-[60%] m-2 p-2 px-5" key={dataItem.id}>
+          <div className="flex flex-col justify-start-start  bg-white  rounded-md shadow-md text-lg md:xl  lg:justify-center w-[98%] md:w-[60%] m-2 p-2 px-5" key={dataItem.id}>
             <div
               className="flex justify-between pb-2"
               onClick={() => handleSingleSelection(dataItem.id)} // Use arrow function to pass the id

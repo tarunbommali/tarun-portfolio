@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import { FaPlay } from "react-icons/fa";
 import { FaPause } from "react-icons/fa";
+import { IoMusicalNote } from "react-icons/io5";
+
 
 import { AUDIO_SRC_DATA } from '../utils/audioSrcData';
 
@@ -23,13 +24,13 @@ function AudioPlayer() {
 
   return (
     <>
-      <button className='outline-none border-none' onClick={togglePlayPause}>{isPlaying ? <FaPause/> : <FaPlay/>}</button>
+      <button className='outline-none border-none' onClick={togglePlayPause}>{isPlaying ? <FaPause/> : <IoMusicalNote/>}</button>
       <ReactAudioPlayer
         controls={false}
         ref={audioRef}
         src={AUDIO_SRC_DATA[0]}
         onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
+        onPause={() => setIsPlaying(false)}w
       />
     </>
   );
