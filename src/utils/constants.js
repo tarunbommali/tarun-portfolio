@@ -1,5 +1,5 @@
 export const PROFILE_IMG_URL =
-  "https://res.cloudinary.com/drdgj0pch/image/upload/v1707662912/WhatsApp_Image_2024-02-09_at_14.26.09_9a0ddc7f_yqjui9.jpg";
+  "https://res.cloudinary.com/drdgj0pch/image/upload/v1730514872/Screenshot_2024-11-02_080335_zokmgr.png";
 
 
 export const FAVICON_IMG_URL = PROFILE_IMG_URL

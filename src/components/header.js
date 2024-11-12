@@ -90,17 +90,17 @@ const Header = () => {
 
   return (
     <div className="flex justify-between px-5 py-3 text-[#5e5e5e]">
-      <div className="flex items-center logo font-extrabold text-[28px] ">
+      <a  href="https://tarunbommali.netlify.app/" className="flex items-center logo font-extrabold text-[28px] ">
         <img
           src={PROFILE_IMG_URL}
           alt="logo"
           className="rounded-full h-10 w-10 mr-3 "
         />
-        Tb.
-      </div>
+        Tb.</a>
+      
 
       {/* Desktop screen */}
-      <ul className="hidden items-center font-semibold lg:flex block">
+      <ul className="hidden items-center font-semibold lg:flex ">
         {navMenuList.map((navMenuLink, index) => (
           <li
             key={index}
