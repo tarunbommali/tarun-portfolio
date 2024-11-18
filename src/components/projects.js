@@ -5,6 +5,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaFileCode } from "react-icons/fa";
 import Carousel from "../utils/carousel";
 import { miniProjectsList } from "../utils/miniProjectsData";
+import Srpdt from "../utils/srpdt";
 
 class Projects extends Component {
   state = { projects: projectsList, searchInput: "" };
@@ -16,12 +17,17 @@ class Projects extends Component {
 
     return (
       <div className="flex flex-col items-center bg-[#f4f2ee] min-h-screen ">
-        <h1 className="p-3 font-semibold text-lg md:text-3xl">Mini Projects</h1>
-        <div  className="flex justify-evenly items-center w-[80%]  rounded-md bg-white flex-wrap m-3 p-3 ">
-        
-        <Carousel miniProject={miniProjectsList}/>
+        <h1 className="p-3 font-semibold text-lg md:text-3xl">SRPDT </h1>
+        <div className="flex justify-evenly items-center w-[80%]  rounded-md bg-white flex-wrap m-3 p-3 ">
+          <Srpdt />
         </div>
-      <h1 className="p-3 font-semibold text-lg md:text-3xl">Assignments</h1>
+
+        <h1 className="p-3 font-semibold text-lg md:text-3xl">Mini Projects</h1>
+        <div className="flex justify-evenly items-center w-[80%]  rounded-md bg-white flex-wrap m-3 p-3 ">
+          <Carousel miniProject={miniProjectsList} />
+        </div>
+
+        <h1 className="p-3 font-semibold text-lg md:text-3xl">Assignments</h1>
 
         <ul className="flex justify-evenly items-center w-[80%] rounded-md bg-white flex-wrap m-3 p-3 ">
           {filteredProjects.map((project) => (
