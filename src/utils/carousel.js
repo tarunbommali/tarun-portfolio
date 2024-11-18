@@ -1,28 +1,27 @@
-// Carousel.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const Carousel = ({ miniProject }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Go to previous slide
-  const goToPrevious = () => {
+  const goToPrevious = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? miniProject.length - 1 : prevIndex - 1
     );
-  };
+  }, [miniProject.length]);
 
   // Go to next slide
-  const goToNext = () => {
+  const goToNext = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === miniProject.length - 1 ? 0 : prevIndex + 1
     );
-  };
+  }, [miniProject.length]);
 
-  // Auto-update slide every 5 seconds
+  // Auto-update slide every 10 seconds
   useEffect(() => {
-    const interval = setInterval(goToNext, 10000); 
+    const interval = setInterval(goToNext, 10000);
     return () => clearInterval(interval); // Cleanup on component unmount
-  }, [currentIndex]); // Re-run when currentIndex changes
+  }, [goToNext]); // Include goToNext as dependency
 
   return (
     <div className="flex flex-col md:flex-row items-center w-full mx-auto py-6 px-4 overflow-hidden">
