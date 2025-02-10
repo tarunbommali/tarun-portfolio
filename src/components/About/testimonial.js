@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { GrPrevious } from "react-icons/gr";
 import { GrNext } from "react-icons/gr";
-import { testimonialsList } from "../utils/testimonialsData";
+import { testimonialsList } from "../../utils/testimonialsData";
 
 function Testimonial() {
   const [activeIndex, setActiveIndex] = useState(0);

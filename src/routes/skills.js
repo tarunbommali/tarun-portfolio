@@ -1,9 +1,9 @@
 import { skillsList } from "../utils/skillsData";
-
 import { FaStar } from "react-icons/fa";
-import SkillsFooter from "./skillsFooter";
-
+import SkillsFooter from "../components/Skills/skillsFooter";
 import React, { Component } from "react";
+
+const SKILL_ROUTE_BG_URL = "https://static.typingclub.com/m/website/authen/tp-1600.svg";
 
 export default class Skills extends Component {
   state = { activeTopic: "React" };
@@ -72,13 +72,22 @@ export default class Skills extends Component {
   render() {
     return (
       <>
-      <div className="flex justify-center  bg-[#f4f2ee]">
-        <div className="w-[80%]">
-          {this.renderSkillsList()}
-          {this.renderSkillItemConcepts()}
+        <div
+          className="flex justify-center bg-[#f4f2ee]"
+          style={{
+            backgroundImage: `url(${SKILL_ROUTE_BG_URL})`,
+            backgroundSize: 'cover', // Ensures the background image covers the entire container
+            backgroundPosition: 'center', // Center the image
+            backgroundRepeat: 'no-repeat', // Prevent the image from repeating
+            backgroundAttachment: 'fixed', // Keeps the background fixed during scroll
+          }}
+        >
+          <div className="w-[80%]">
+            {this.renderSkillsList()}
+            {this.renderSkillItemConcepts()}
+          </div>
         </div>
-      </div>
-      <SkillsFooter />
+        <SkillsFooter />
       </>
     );
   }

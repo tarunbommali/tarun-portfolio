@@ -4,7 +4,7 @@ import { FaPause } from "react-icons/fa";
 import { IoMusicalNote } from "react-icons/io5";
 
 
-import { AUDIO_SRC_DATA } from '../utils/audioSrcData';
+import { AUDIO_SRC_DATA } from '../../utils/audioSrcData';
 
 
 function AudioPlayer() {

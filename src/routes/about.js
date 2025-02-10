@@ -1,7 +1,7 @@
 
-import Services from "./services";
-import Testimonial from "./testimonial";
-import MyAccordion from "./myAccordion";
+import Services from '../components/About/services';
+import Testimonial from '../components/About/testimonial';
+import MyAccordion from "../components/About/myAccordion";
 
 const About = () => {
   return (

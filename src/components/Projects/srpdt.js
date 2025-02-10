@@ -1,5 +1,5 @@
 import React from "react";
-import { srpdtProjectsList } from "./srpdtProjectsList.";
+import { srpdtProjectsList } from "../../utils/srpdtProjectsList.";
 
 const Srpdt = () => {
   return (

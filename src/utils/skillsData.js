@@ -10,6 +10,7 @@ import {
   FaBootstrap,
   FaCss3,
   FaGithub,
+  FaAws,
 } from "react-icons/fa";
 
 const skillsList = [
@@ -345,6 +346,28 @@ const skillsList = [
       responsiveDesignTechniques: true,
       cssVariables: true,
       cssSpecificity: true,
+    },
+  },
+  {
+    id: 11,
+    rating: 3,
+    technology: "Cloud Practitioner",
+    icon: <FaAws size={42} color="#232f3e" />,
+    section: "TECHNOLOGY",
+    keyTopics: {
+      "AWS Global Infrastructure": true,
+      EC2: true,
+      "Load Balancers": true,
+      "AMI EBS": true,
+      S3: true,
+      EFS: true,
+      Volumes: true,
+      "Snapshots VPC": true,
+      NAT: true,
+      "Bastion Hosts": true,
+      " RouteS3": true,
+      "I AM": true,
+      "Cost Calculator ": true,
     },
   },
 ];
