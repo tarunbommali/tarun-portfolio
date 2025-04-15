@@ -30,6 +30,13 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
   return (
+
+    <>
+    
+    <div className="flex justify-center items-center font-light text-center mb-5 text-md md:text-2xl">
+        <h1 className="border-b-2 pb-2 border-blue-500">Testimonials</h1>
+      </div>
+      
     <div className="mx-auto max-w-sm px-4 py-20 font-sans antialiased md:max-w-4xl md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
         {/* Left Image Section */}
@@ -122,5 +129,6 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };

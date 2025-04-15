@@ -56,8 +56,8 @@ export const AppLayout = () => {
           theme === "dark" ? "bg-black border-[#262626]" : "bg-white border-[#dbdbdb]"
         } items-center px-4 md:px-8  z-50 border-b  `}
       >
-        <a href={PORTFOLIO_URL} className="text-2xl font-bold decoration-none">
-          Tarun B
+        <a href={PORTFOLIO_URL} className="text-2xl font-thin decoration-none">
+          <code>Tarun B </code>
         </a>
 
         {/* Desktop Nav */}
@@ -128,7 +128,7 @@ export const AppLayout = () => {
       </aside>
 
       {/* Page Sections */}
-      <main className="pt-[70px] md:pt-[10px] space-y-20">
+      <main className="pt-[60px] md:pt-[10px] ">
         <section id="home" className="relative">
           <Home />
         </section>

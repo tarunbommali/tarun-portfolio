@@ -25,23 +25,24 @@ export const SkillCard = ({ skillsArray }) => {
 
   return (
     <div className="flex flex-wrap gap-4">
-      {skillsArray.map((skill, index) => (
-        <div
-          key={index}
-          className={`flex items-center gap-3 mb-2 ml-2 border rounded-md shadow-md p-2 transition-colors duration-300
-            ${themeStyles[theme].cardBg} ${themeStyles[theme].border}`}
-        >
-          <span className={`text-xl ${themeStyles[theme].iconColor}`}>
-            {skill.icon && React.createElement(skill.icon)}
-          </span>
-          <span className={`w-32 font-medium ${themeStyles[theme].textPrimary}`}>
-            {skill.technology}
-          </span>
-          <span className={`w-10 text-right text-sm font-semibold ${themeStyles[theme].textSecondary}`}>
-            {(skill.rating / 5) * 100}%
-          </span>
-        </div>
-      ))}
+  {skillsArray.map((skill, index) => (
+    <div
+      key={index}
+      className={`flex items-center gap-3 border rounded-md shadow-md p-2 transition-colors duration-300
+        w-full sm:w-[250px] ${themeStyles[theme].cardBg} ${themeStyles[theme].border}`}
+    >
+      <span className={`text-xl ${themeStyles[theme].iconColor}`}>
+        {skill.icon && React.createElement(skill.icon)}
+      </span>
+      <span className={`w-32 font-medium ${themeStyles[theme].textPrimary}`}>
+        {skill.technology}
+      </span>
+      <span className={`w-10 text-right text-sm font-semibold ${themeStyles[theme].textSecondary}`}>
+        {(skill.rating / 5) * 100}%
+      </span>
     </div>
+  ))}
+</div>
+
   );
 };

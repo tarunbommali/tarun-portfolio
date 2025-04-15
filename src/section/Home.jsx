@@ -45,7 +45,7 @@ const Home = () => {
   const options = useMemo(() => tsObject, []);
 
   return (
-    <div className={`relative min-h-screen w-full overflow-hidden ${themeStyles[theme].bgColor} transition-colors duration-300`}>
+    <div className={`relative min-h-screen w-full p-11 overflow-hidden ${themeStyles[theme].bgColor} transition-colors duration-300`}>
       {/* Particle Background */}
       {init && (
         <Particles
@@ -84,8 +84,8 @@ const Home = () => {
 
             {/* Text Content */}
             <div className="flex flex-col justify-center w-full lg:w-auto text-left">
-              <h1 className={`text-5xl ${themeStyles[theme].textColor}`}>Hi,</h1>
-              <h1 className={`text-5xl font-bold ${themeStyles[theme].headingColor}`}>I am, Tarun Bommali</h1>
+              <h1 className={`sm:3xl  md:text-5xl ${themeStyles[theme].textColor}`}>ꫝꫀꪗ, ꫝⅈ! </h1>
+              <h1 className={`sm:3xl  md:text-5xl font-bold py-2 ${themeStyles[theme].headingColor}`}>I AM, 𝒯𝒶𝓇𝓊𝓃 ℬℴ𝓂𝓂𝒶𝓁𝒾</h1>
 
               {/* Typewriter Effect */}
               <div className="w-auto mx-auto md:mx-0 mt-5">
