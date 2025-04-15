@@ -1,5 +1,5 @@
 import MyAccordion from "../components/About/myAccordion";
-import { ServicesList } from "../components/About/servicesList";
+// import { ServicesList } from "../components/About/servicesList";
 import { AnimatedTestimonials } from "../components/ui/animated-testimonials";
 import { testimonials } from "../utils/testimonials";
 import { motion } from "framer-motion";
@@ -35,9 +35,9 @@ const About = () => {
       </motion.p>
 
       {/* Services Section */}
-      <div className="mb-8">
+      {/* <div className="mb-8">
         <ServicesList theme={theme} />
-      </div>
+      </div> */}
 
       {/* Testimonials Section */}
       <div className="mb-8">
