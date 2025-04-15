@@ -1,4 +1,4 @@
-const currentTheme = 'dark';  // Change this dynamically in your app
+const currentTheme = 'dark';  
 
 export const tsObject = {
   background: {

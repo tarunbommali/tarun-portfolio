@@ -13,7 +13,7 @@ export const Project = () => {
           isDarkTheme ? "bg-[#000000] text-gray-200" : "bg-white text-gray-800"
         }`}
       >
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+        <div className="flex flex-col my-4  md:flex-row md:justify-between md:items-center">
           {/* Page Title */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

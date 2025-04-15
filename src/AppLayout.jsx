@@ -57,7 +57,8 @@ export const AppLayout = () => {
         } items-center px-4 md:px-8  z-50 border-b  `}
       >
         <a href={PORTFOLIO_URL} className="text-2xl font-thin decoration-none">
-          <code>Tarun B </code>
+          <code>&lt;Tarun B/&gt;
+          </code>
         </a>
 
         {/* Desktop Nav */}

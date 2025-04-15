@@ -29,8 +29,8 @@ export const Skills = () => {
       : nonTechnicalSkills.find((tab) => tab.tabId === activeTab);
 
   return (
-    <div className="px-4 sm:px-6 md:px-8 py-4  transition-colors duration-300">
-      <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+    <div className="px-4 sm:px-6 md:px-8 py-2  transition-colors duration-300">
+      <div className="flex flex-col pb-2 md:flex-row md:justify-between md:items-center">
         {/* Page Title */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -78,7 +78,7 @@ export const Skills = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
             transition={{ duration: 0.3 }}
-            className={`border  rounded-xl min-h-[60vh] transition-all duration-300 shadow-md
+            className={`border p-2 rounded-xl min-h-[60vh] transition-all duration-300 shadow-md
               ${
                 isDarkTheme
                   ? "bg-gray-900 border-gray-700 text-gray-200"

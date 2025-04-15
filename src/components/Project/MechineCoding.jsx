@@ -5,7 +5,7 @@ export function MechineCoding() {
     <InfiniteMovingCards
       items={MechineCodingList}
       direction="left"
-      speed="slow"
+      speed="medium"
     />
   );
 }

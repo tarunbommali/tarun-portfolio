@@ -20,7 +20,7 @@ export default function MyAccordion() {
 
   return (
     <>
-      <div className="flex justify-center items-center font-light text-center mb-5 text-md md:text-2xl">
+      <div className="flex justify-center items-center font-light text-center mb-5 text-sm md:text-lg">
         <h1 className="border-b-2 pb-2 border-blue-500">Common Inquiries</h1>
       </div>
 
