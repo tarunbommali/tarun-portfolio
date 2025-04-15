@@ -1,0 +1,12 @@
+/* styles.css */
+.scroll-animation {
+    animation: scroll var(--animation-duration, 40s)
+      linear var(--animation-delay, 0s) infinite;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+  
