@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { technicalSkills, nonTechnicalSkills } from "../utils/skillList.jsx";
+import { technicalSkills, nonTechnicalSkills } from "../utils/skillList";
 import { motion, AnimatePresence } from "framer-motion";
 import { Code, Users, Brain, Hammer } from "lucide-react";
 import TechnicalSkills from "../components/Skills/TechnicalSkills";
