@@ -21,6 +21,9 @@ export const SkillCard = ({ skillsArray }) => {
         const percentage = (skill.rating / 5) * 100;
         const { label, color } = getRatingLabelAndColor(percentage);
 
+        // Get icon color from themeStyles.skillsIconColors or fallback
+        const iconColor = themeStyles.skillsIconColors?.[skill.technology] || "text-gray-400";
+
         return (
           <motion.div
             key={index}
@@ -32,7 +35,7 @@ export const SkillCard = ({ skillsArray }) => {
               ${themeStyles.cardBg} ${themeStyles.borderColor}`}
           >
             <div className="flex items-center gap-3 mb-2">
-              <span className={`text-xl ${themeStyles.skillIconColor}`}>
+              <span className={`text-xl ${iconColor}`}>
                 {skill.icon && React.createElement(skill.icon)}
               </span>
               <span className={`font-medium ${themeStyles.skillTextPrimary}`}>

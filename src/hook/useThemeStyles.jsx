@@ -30,6 +30,8 @@ export const useThemeStyles = () => {
       skillTextSecondary: "text-gray-600",
       skillIconColor: "text-gray-700",
       skillTrail: "#E5E7EB",
+      skillActiveTab: "bg-blue-500 text-white",
+      skillInactiveTab: "bg-gray-100 text-gray-600",
 
       // Project styles
       projectcardBg: "bg-white border-gray-200",
@@ -48,6 +50,30 @@ export const useThemeStyles = () => {
         footerBG: "bg-gray-200",
       },
 
+      // Section Bg
+      skillSectionBg: "bg-[#ffffff]",
+      aboutSectionBg: "bg-[#ffffff]",
+      projectSectionBg: "bg-[#ffffff]",
+
+      // About Section
+      // --> Testimonial Light styles
+
+      testimonial: {
+        nameText: "text-black",
+        designationText: "text-gray-500",
+        quoteText: "text-gray-600",
+        prevBtnBg: "bg-gray-100",
+        nextBtnBg: "bg-gray-100",
+        prevBtnText: "text-black",
+        nextBtnText: "text-black",
+        bgColor: "bg-white",
+      },
+
+
+      // Global styles
+      // --> Header
+      headerBGColor: "bg-white",
+
       // Typewriter
       typeWriterTextColor: "text-gray-900",
       typeWriterCursorColor: "text-blue-500",
@@ -61,6 +87,39 @@ export const useThemeStyles = () => {
       AiChatbotBg: "bg-blue-500",
       AiChatbotHover: "hover:bg-blue-600",
       AiChatbotText: "text-white",
+
+      // Skills Icon Colors
+      skillsIconColors: {
+        JavaScript: "text-yellow-400",
+        Python: "text-blue-500",
+        Java: "text-orange-600",
+      
+        HTML: "text-orange-500",
+        CSS: "text-blue-600",
+        React: "text-cyan-500",
+        Node: "text-green-500",
+        Express: "text-gray-600",
+        Git: "text-orange-500",
+        GitHub: "text-gray-900",
+        VSCode: "text-blue-500",
+        Postman: "text-orange-400",
+        NPM: "text-red-600",
+        Yarn: "text-blue-500",
+      
+        MySQL: "text-blue-700",
+        PostgreSQL: "text-blue-800",
+        SQLite: "text-gray-500",
+        MongoDB: "text-green-700",
+      
+        Redux: "text-purple-500",
+        Bootstrap: "text-purple-600",
+        Tailwind: "text-sky-500",
+        jQuery: "text-blue-600",
+        Axios: "text-cyan-600",
+      
+        AWS: "text-orange-400",
+      },
+      
     },
 
     dark: {
@@ -81,6 +140,25 @@ export const useThemeStyles = () => {
 
       linkColor: "text-cyan-400 hover:underline",
 
+      // Section Bg
+      skillSectionBg: "bg-[#000000]",
+      aboutSectionBg: "bg-[#000000]",
+      projectSectionBg: "bg-[#000000]",
+
+      // About Section
+      // --> Testimonial Dark styles
+
+      testimonial: {
+        nameText: "text-white",
+        designationText: "text-gray-300",
+        quoteText: "text-gray-200",
+        prevBtnBg: "bg-gray-700",
+        nextBtnBg: "bg-gray-700",
+        prevBtnText: "text-white",
+        nextBtnText: "text-white",
+        bgColor: "[#181818]",
+      },
+
       // Skill styles
       skillCardBg: "bg-gray-700",
       skillBorder: "border-gray-600",
@@ -88,6 +166,8 @@ export const useThemeStyles = () => {
       skillTextSecondary: "text-gray-300",
       skillIconColor: "text-white",
       skillTrail: "#4B5563",
+      skillActiveTab: "bg-green-500 text-white",
+      skillInactiveTab: "bg-gray-700 text-gray-300",
 
       // Project styles
       projectcardBg: "bg-[#1a1a1a] border-gray-700",
@@ -105,6 +185,43 @@ export const useThemeStyles = () => {
         text: "text-white",
         footerBG: "bg-[#1d232a]",
       },
+
+      // Skills icons colors
+      skillsIconColors: {
+        JavaScript: "text-yellow-400",
+        Python: "text-blue-400",
+        Java: "text-orange-500",
+      
+        HTML: "text-orange-400",
+        CSS: "text-blue-500",
+        React: "text-cyan-300",
+        Node: "text-green-400",
+        Express: "text-gray-400",
+        Git: "text-orange-400",
+        GitHub: "text-gray-100",
+        VSCode: "text-blue-400",
+        Postman: "text-orange-300",
+        NPM: "text-red-500",
+        Yarn: "text-blue-400",
+      
+        MySQL: "text-blue-500",
+        PostgreSQL: "text-blue-600",
+        SQLite: "text-gray-400",
+        MongoDB: "text-green-400",
+      
+        Redux: "text-purple-400",
+        Bootstrap: "text-purple-500",
+        Tailwind: "text-sky-300",
+        jQuery: "text-blue-400",
+        Axios: "text-cyan-400",
+      
+        AWS: "text-orange-300",
+      },
+      
+
+      // Global styles
+      // --> Header
+      headerBGColor: "bg-black",
 
       // Typewriter
       typeWriterTextColor: "text-gray-200",

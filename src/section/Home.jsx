@@ -12,7 +12,7 @@ import { useThemeStyles } from "../hook/useThemeStyles";
 
 const Home = () => {
   const [init, setInit] = useState(false);
-  const themeStyles = useThemeStyles(); // ✅ use hook
+  const themeStyles = useThemeStyles();
 
   // Initialize tsparticles
   useEffect(() => {
@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div
-      className={`md:min-h-screen w-full p-11 overflow-hidden ${themeStyles.bgColor} transition-colors duration-300`}
+      className={`h-auto  w-full p-11 overflow-hidden ${themeStyles.bgColor} transition-colors duration-300`}
     >
       {/* Particle Background */}
       {init && (
@@ -36,12 +36,12 @@ const Home = () => {
         />
       )}
 
-      {/* Hero Content */}
+      {/* Main Content */}
       <div className="relative z-10 flex flex-col lg:flex-row md:justify-center items-center min-h-screen text-center sm:px-10">
         <motion.img
           alt="profile"
           src={PROFILE_IMG}
-          className="w-38 h-38 md:w-54 md:h-54 lg:w-64 lg:h-64 rounded-full shadow-2xl z-10 relative object-cover"
+          className="w-33 h-33 md:w-54 md:h-54 lg:w-64 lg:h-64 rounded-full shadow-2xl z-10 relative object-cover"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -60,13 +60,13 @@ const Home = () => {
           </h1>
 
           {/* Typewriter Effect */}
-          <div className="w-auto mx-auto md:mx-0 mt-5">
+          <div className="w-auto md:mx-0 mt-5">
             <TypewriterComponent />
           </div>
 
           {/* Buttons + Socials */}
           <div className="flex flex-col mt-8 space-y-4">
-            <div className="flex justify-center lg:justify-start space-x-4">
+            <div className="flex justify-start space-x-4">
               <a
                 href={WHATSAPP_URL}
                 target="_blank"

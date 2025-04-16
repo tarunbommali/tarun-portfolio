@@ -1,5 +1,4 @@
 import Footer from "./Footer";
-import Home from "./section/Home";
 import { PORTFOLIO_URL } from "./utils/constants";
 import { useSelector, useDispatch } from "react-redux";
 import { Menu, X } from "lucide-react";
@@ -7,23 +6,17 @@ import { toggleSidebar } from "./store/sidebarSlice";
 import { useEffect, useRef, useState } from "react";
 import { toggleTheme } from "./store/themeSlice";
 import { motion } from "framer-motion";
-import { navMenuList } from "./utils/navMenuList";
+import { sectionList } from "./utils/sectionList"; // Import sectionList dynamically
 import { ThemeControllerButton } from "./components/global/ThemeControllerButton";
 import FloatingActions from "./FloatingActions";
-import About from "./section/About";
-import { Skills } from "./section/Skills";
-import { Project } from "./section/Project";
 import { useThemeStyles } from "./hook/useThemeStyles";
 
 export const AppLayout = () => {
   const dispatch = useDispatch();
   const expanded = useSelector((state) => state.sidebar.expanded);
-  const themeStyles = useThemeStyles(); 
+  const themeStyles = useThemeStyles();
   const sidebarRef = useRef(null);
   const [activeSection, setActiveSection] = useState("home");
-
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light";
 
   const handleToggle = () => dispatch(toggleTheme());
 
@@ -44,15 +37,27 @@ export const AppLayout = () => {
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
+  useEffect(() => {
+    if (expanded) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    // Optional cleanup to ensure body scroll is reset if component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [expanded]);
+  
+
   return (
     <div
       className={`relative min-h-screen ${themeStyles.bgColor} ${themeStyles.textColor}`}
     >
       {/* Header */}
       <header
-        className={`fixed top-0 left-0 w-full h-[60px] md:h-[52px] flex justify-between ${theme === "light" ? "bg-white" : "bg-black"} items-center px-4 md:px-8 z-50 border-b ${
-          themeStyles.iconColors.FooterBG
-        } ${themeStyles.borderColor}`}
+        className={`fixed top-0 left-0 w-full h-[60px] md:h-[52px] flex justify-between ${themeStyles.headerBGColor} items-center px-4 md:px-8 z-50 border-b ${themeStyles.iconColors.FooterBG} ${themeStyles.borderColor}`}
       >
         <a href={PORTFOLIO_URL} className="text-2xl font-thin decoration-none">
           <code>&lt;Tarun B/&gt;</code>
@@ -60,16 +65,14 @@ export const AppLayout = () => {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-6">
-          {navMenuList.map((item, index) => (
+          {sectionList.map((item, index) => (
             <motion.a
               key={index}
-              href={`#${item.hrefText}`}
+              href={`#${item.sectionID}`}
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
-              className={`flex items-center font-thin px-4 py-2 rounded-lg font-medium cursor-pointer transition-all duration-300 ${
-                themeStyles.linkColor
-              }`}
+              className={`flex items-center font-thin px-4 py-2 rounded-lg font-medium cursor-pointer transition-all duration-300 ${themeStyles.linkColor}`}
             >
               <item.icon className="w-5 h-5 mr-2" />
               {item.displayText}
@@ -81,7 +84,10 @@ export const AppLayout = () => {
         {/* Mobile Nav Toggle */}
         <div className="md:hidden flex items-center gap-2">
           <ThemeControllerButton handleToggle={handleToggle} />
-          <button className="p-2 rounded-lg" onClick={() => dispatch(toggleSidebar())}>
+          <button
+            className="p-2 rounded-lg"
+            onClick={() => dispatch(toggleSidebar())}
+          >
             {expanded ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -98,51 +104,52 @@ export const AppLayout = () => {
       {/* Mobile Sidebar */}
       <aside
         ref={sidebarRef}
-        className={`fixed top-[60px] left-0 w-full transform transition-transform duration-300 md:hidden z-50 ${
+        className={`fixed top-[60px] left-0 w-[90vw] h-full transform transition-transform duration-300 md:hidden z-50 ${
           expanded ? "translate-x-0" : "-translate-x-full"
-        } ${themeStyles.bgColor} ${themeStyles.textColor}`}
+        }
+          
+         ${themeStyles.bgColor} ${themeStyles.textColor}`}
       >
         <nav className="flex flex-col p-4 gap-3">
-          {navMenuList.map((item, index) => (
-            <motion.a
-              key={index}
-              href={`#${item.hrefText}`}
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className={`cursor-pointer hover:underline ${
-                activeSection === item.hrefText
-                  ? "text-blue-500 font-semibold"
-                  : themeStyles.textColor
-              }`}
-            >
-              {item.displayText}
-            </motion.a>
+          {sectionList.map((item, index) => (
+           <motion.a
+           key={index}
+           href={`#${item.sectionID}`}
+           initial={{ opacity: 0, scale: 0.5 }}
+           animate={{ opacity: 1, scale: 1 }}
+           transition={{ duration: 0.3 }}
+           onClick={() => dispatch(toggleSidebar())}
+           className={`cursor-pointer hover:underline ${
+             activeSection === item.sectionID
+               ? "text-blue-500 font-semibold"
+               : themeStyles.textColor
+           }`}
+         >
+           {item.displayText}
+         </motion.a>
+         
           ))}
         </nav>
       </aside>
 
       {/* Page Sections */}
-      <main className="pt-[60px] md:pt-[10px]">
-        <section id="home" className="relative">
-          <Home />
-        </section>
-        <section id="skills" className="scroll-mt-[50px]">
-          <Skills />
-        </section>
-        <section id="projects" className="scroll-mt-[50px]">
-          <Project />
-        </section>
-        <section id="about" className="scroll-mt-[50px]">
-          <About />
-        </section>
-        <section id="footer" className="scroll-mt-[50px]">
-          <Footer />
-        </section>
+      <main className={`pt-[60px] md:pt-[10px] `}>
+        {sectionList.map((item) => (
+          <section
+            id={item.sectionID}
+            key={item.id}
+            className="scroll-mt-[50px]"
+          >
+            <item.component />
+          </section>
+        ))}
       </main>
 
-      {/* Floating Actions */}
-      <FloatingActions />
+      <footer>
+        <Footer />
+        {/* Floating Actions */}
+        <FloatingActions />
+      </footer>
     </div>
   );
 };

@@ -53,7 +53,7 @@ const SocialMenu = () => {
   ];
 
   return (
-    <Icons>
+    <Icons className="flex sm:justify-center items-center">
       {List.map(({ id, link, icon, color, name }) => (
         <SocialIconLink
           key={id}

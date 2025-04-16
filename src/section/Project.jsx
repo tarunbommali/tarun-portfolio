@@ -4,7 +4,7 @@ import { ProjectAnimation } from "../components/Project/ProjectAnimation";
 import { useThemeStyles } from "../hook/useThemeStyles";
 
 export const Project = () => {
-  const themeStyles = useThemeStyles(); // ✅ get current theme styles
+  const themeStyles = useThemeStyles(); 
 
   return (
     <>

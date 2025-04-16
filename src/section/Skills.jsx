@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Code, Users, Brain, Hammer } from "lucide-react";
 import TechnicalSkills from "../components/Skills/TechnicalSkills";
 import { useThemeStyles } from "../hook/useThemeStyles";
-import { useSelector } from "react-redux";
 
 const tabIcons = {
   1: <Code className="w-5 h-5 mr-2" />,
@@ -23,10 +22,6 @@ const allTabs = [
 export const Skills = () => {
   const [activeTab, setActiveTab] = useState(1);
   const themeStyles = useThemeStyles();
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light";
-
- 
 
   const selectedTab =
     activeTab === 1
@@ -35,7 +30,7 @@ export const Skills = () => {
 
   return (
     <div
-      className={`px-4 sm:px-6 md:px-8 py-2 transition-colors duration-300 ${theme == "dark" ? "#000000" : "#ffffff"} ${themeStyles.textColor}`}
+      className={`px-4 sm:px-6 md:px-8 py-2 transition-colors duration-300 ${themeStyles.skillSectionBg} ${themeStyles.textColor}`}
     >
       <div className="flex flex-col pb-2 md:flex-row md:justify-between md:items-center">
         {/* Page Title */}
@@ -57,8 +52,8 @@ export const Skills = () => {
                 onClick={() => setActiveTab(tab.tabId)}
                 className={`flex items-center px-4 py-2 rounded-full font-medium whitespace-nowrap transition-all duration-200 ${
                   activeTab === tab.tabId
-                    ? themeStyles.btnPrimary
-                    : themeStyles.btnSecondary
+                    ? themeStyles.skillActiveTab
+                    : themeStyles.skillInactiveTab
                 }`}
               >
                 {tabIcons[tab.tabId]}
@@ -85,7 +80,9 @@ export const Skills = () => {
             ) : (
               selectedTab.children.map((category, index) => (
                 <div key={index} className="mb-4 p-4">
-                  <h3 className={`text-lg font-semibold mb-2 ${themeStyles.headingColor}`}>
+                  <h3
+                    className={`text-lg font-semibold mb-2 ${themeStyles.headingColor}`}
+                  >
                     {category.category}
                   </h3>
                   <ul className="list-disc list-inside ml-4">
