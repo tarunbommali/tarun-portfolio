@@ -1,32 +1,25 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import accordionData from "../../utils/accordionData";
 
-export default function MyAccordion() {
+export default function MyAccordion({ themeStyles }) {
   const [selected, setSelected] = useState(null);
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light";
 
-  // Define dynamic colors
-  const textColor = theme === "light" ? "text-gray-900" : "text-gray-200";
-  const borderColor = theme === "light" ? "border-gray-300" : "border-gray-600";
-  const bgColor = theme === "light" ? "bg-white" : "bg-gray-800";
-  const shadowColor = theme === "light" ? "shadow-lg" : "shadow-gray-700";
+  // Using themeStyles directly
+  const { textColor, borderColor, bgColor, shadowColor } = themeStyles;
 
   const handleSingleSelection = (id) => {
-    setSelected(selected === id ? null : id); // Toggle the selected item
+    setSelected(selected === id ? null : id); 
   };
 
   return (
     <>
       <div className="flex justify-center items-center font-light text-center mb-5 text-sm md:text-lg">
-        <h1 className="border-b-2 pb-2 border-blue-500">Common Inquiries</h1>
+        <h1 className={`border-b-2 pb-2 ${themeStyles.headingColor}`}>Common Inquiries</h1>
       </div>
 
-      <div
-        className={`flex justify-center items-center  flex-col   flex  py-3 ${textColor}`}
-      >
+      <div className={`flex justify-center items-center flex-col py-3 ${textColor}`}>
         {accordionData && accordionData.length > 0 ? (
           accordionData.map((dataItem) => (
             <div

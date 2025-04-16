@@ -3,10 +3,14 @@ import { useEffect, useState } from "react";
 import { FaRobot, FaChevronUp } from "react-icons/fa6";
 import AIChatbot from "./AIChatbot";
 
+import { useThemeStyles } from "./hook/useThemeStyles";
 
-const FloatingActions = ({ theme }) => {
+
+const FloatingActions = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showChat, setShowChat] = useState(false);
+
+  const themeStyles =  useThemeStyles();
   useEffect(() => {
     const toggleVisibility = () => {
       setIsVisible(window.scrollY > 300);
@@ -36,11 +40,10 @@ const FloatingActions = ({ theme }) => {
     <div className="fixed bottom-6 right-6 flex flex-col space-y-3 z-[9999]">
       {/* AI Chatbot Button */}
       <button
-        className={`p-3 rounded-full shadow-lg transition ${
-          theme === "light"
-            ? "bg-blue-500 hover:bg-blue-600 text-white"
-            : "bg-blue-700 hover:bg-blue-800 text-gray-200"
-        }`}
+        className={`p-3 rounded-full shadow-lg transitio
+           ${themeStyles.aiChatbotBg} 
+          ${themeStyles.aiChatbotHover} 
+          ${themeStyles.aiChatbotText}`}
         onClick={() => setShowChat(true)}
       >
         <FaRobot size={24} />
@@ -49,11 +52,11 @@ const FloatingActions = ({ theme }) => {
       {/* Scroll to Top Button */}
       {isVisible && (
         <button
-          className={`p-3 rounded-full shadow-lg transition ${
-            theme === "light"
-              ? "bg-gray-700 hover:bg-gray-800 text-white"
-              : "bg-gray-500 hover:bg-gray-600 text-gray-100"
-          }`}
+        className={`p-3 rounded-full shadow-lg transition 
+          ${themeStyles.floatingActionBg} 
+          ${themeStyles.floatingActionHover} 
+          ${themeStyles.floatingActionText}`}
+      
           onClick={scrollToTop}
         >
           <FaChevronUp size={24} />

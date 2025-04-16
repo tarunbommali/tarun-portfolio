@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { FaGithub, FaInstagram, FaLinkedin, FaHackerrank } from "react-icons/fa";
 import { TbBrandLeetcode } from "react-icons/tb";
-import { useSelector } from "react-redux";
 import { CERTIFICATE_AND_CERTIFICATION } from "./utils/document";
+import { useThemeStyles } from "./hook/useThemeStyles";
 
 // Styled component for icons
 const SocialIconLink = styled.a`
@@ -16,56 +16,27 @@ const SocialIconLink = styled.a`
   }
 `;
 
-// Define theme-based icon colors
-const iconColors = {
-  light: {
-    linkedin: "#0077b5",
-    github: "#2b3137",
-    instagram: "#bc5288",
-    hackerrank: "#2EC866",
-    leetcode: "#FFA116",
-    text: "text-gray-900",
-    bg: "bg-gray-200",
-  },
-  dark: {
-    linkedin: "#0077b5",
-    github: "#f5f5f5",
-    instagram: "#d16d8c",
-    hackerrank: "#2EC866",
-    leetcode: "#FFA116",
-    text: "text-white",
-    bg: "bg-[#1d232a]",
-  },
-};
-
 const Footer = () => {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light"; // Dynamically set theme
+  const themeStyles = useThemeStyles(); // hook call to get styles
+  const { iconColors, footerBG, textColor } = themeStyles;
 
   return (
-    <footer className={`footer ${iconColors[theme].bg} ${iconColors[theme].text} p-6 md:p-10`}>
+    <footer className={`footer ${footerBG} ${textColor} p-6 md:p-10`}>
       {/* Popular Coding Questions */}
       <nav>
         <h6 className="footer-title">Solved Popular Coding Questions</h6>
-        <a target="__blank" className="link link-hover">
-          Longest common subsequence
-        </a>
-        <a target="__blank" className="link link-hover">
-          Reverse linked list
-        </a>
-        <a target="__blank" className="link link-hover">
-          Kth smallest element
-        </a>
-        <a target="__blank" className="link link-hover">
-          Reverse words in a string
-        </a>
+        <a target="_blank" className="link link-hover">Longest common subsequence</a>
+        <a target="_blank" className="link link-hover">Reverse linked list</a>
+        <a target="_blank" className="link link-hover">Kth smallest element</a>
+        <a target="_blank" className="link link-hover">Reverse words in a string</a>
       </nav>
 
       {/* Certifications */}
       <nav>
         <h6 className="footer-title">Certifications</h6>
         {CERTIFICATE_AND_CERTIFICATION.map((cert, index) => (
-          <a key={index} target="__blank" href={cert.link} className="flex link link-hover">
+          // eslint-disable-next-line react/jsx-no-target-blank
+          <a key={index} target="_blank" href={cert.link} className="flex link link-hover">
             {cert.title}
           </a>
         ))}
@@ -76,27 +47,27 @@ const Footer = () => {
         <h6 className="footer-title">Social</h6>
         <div className="grid grid-flow-col gap-4">
           <SocialIconLink href="https://www.linkedin.com/in/tarunbommali/" target="_blank">
-            <FaLinkedin size={28} style={{ color: iconColors[theme].linkedin }} />
+            <FaLinkedin size={28} style={{ color: iconColors.linkedin }} />
           </SocialIconLink>
 
           <SocialIconLink href="https://instagram.com/disistarun" target="_blank">
-            <FaInstagram size={28} style={{ color: iconColors[theme].instagram }} />
+            <FaInstagram size={28} style={{ color: iconColors.instagram }} />
           </SocialIconLink>
         </div>
 
         {/* Coding Profiles */}
         <h6 className="footer-title mt-4">Coding Profiles</h6>
-        <div className="grid grid-flow-col gap-4 ">
+        <div className="grid grid-flow-col gap-4">
           <SocialIconLink href="https://github.com/tarunbommali" target="_blank">
-            <FaGithub size={28} style={{ color: iconColors[theme].github }} />
+            <FaGithub size={28} style={{ color: iconColors.github }} />
           </SocialIconLink>
 
           <SocialIconLink href="https://www.hackerrank.com/tarunbommali" target="_blank">
-            <FaHackerrank size={28} style={{ color: iconColors[theme].hackerrank }} />
+            <FaHackerrank size={28} style={{ color: iconColors.hackerrank }} />
           </SocialIconLink>
 
           <SocialIconLink href="https://leetcode.com/tarunbommali" target="_blank">
-            <TbBrandLeetcode size={28} style={{ color: iconColors[theme].leetcode }} />
+            <TbBrandLeetcode size={28} style={{ color: iconColors.leetcode }} />
           </SocialIconLink>
         </div>
       </nav>

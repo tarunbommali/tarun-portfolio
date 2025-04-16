@@ -1,19 +1,6 @@
 import styled from "styled-components";
-import { FaGithubSquare, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { useSelector } from "react-redux";
-
-const iconColors = {
-  light: {
-    linkedin: "#0077b5",
-    github: "#000000",
-    instagram: "#bc5288",
-  },
-  dark: {
-    linkedin: "#0077b5",
-    github: "#ffffff",
-    instagram: "#d16d8c",
-  },
-};
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { useThemeStyles } from "../../hook/useThemeStyles";
 
 // Styled Components
 const Icons = styled.div`
@@ -29,6 +16,7 @@ const SocialIconLink = styled.a`
   align-items: center;
   color: ${({ $color }) => $color};
   filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
 
   &:hover {
     text-decoration: none;
@@ -37,38 +25,47 @@ const SocialIconLink = styled.a`
 `;
 
 const SocialMenu = () => {
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light";
-  const themeColors = iconColors[theme];
+  const themeStyles = useThemeStyles();
+  const { iconColors } = themeStyles;
+
+  const List = [
+    {
+      name: "LinkedIn",
+      id: 1,
+      icon: <FaLinkedin size={38} />,
+      link: "https://www.linkedin.com/in/tarunbommali/",
+      color: iconColors.linkedin,
+    },
+    {
+      name: "GitHub",
+      id: 2,
+      icon: <FaGithub size={38} />,
+      link: "https://github.com/tarunbommali",
+      color: iconColors.github,
+    },
+    {
+      name: "Instagram",
+      id: 3,
+      icon: <FaInstagram size={38} />,
+      link: "https://instagram.com/disistarun",
+      color: iconColors.instagram,
+    },
+  ];
 
   return (
     <Icons>
-      <SocialIconLink
-        href="https://www.linkedin.com/in/tarunbommali/"
-        target="_blank"
-        rel="noopener noreferrer"
-        $color={themeColors.linkedin}
-      >
-        <FaLinkedin size={38} />
-      </SocialIconLink>
-
-      <SocialIconLink
-        href="https://github.com/tarunbommali"
-        target="_blank"
-        rel="noopener noreferrer"
-        $color={themeColors.github}
-      >
-        <FaGithubSquare size={38} />
-      </SocialIconLink>
-
-      <SocialIconLink
-        href="https://instagram.com/disistarun"
-        target="_blank"
-        rel="noopener noreferrer"
-        $color={themeColors.instagram}
-      >
-        <FaInstagram size={38} />
-      </SocialIconLink>
+      {List.map(({ id, link, icon, color, name }) => (
+        <SocialIconLink
+          key={id}
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          $color={color}
+          aria-label={name}
+        >
+          {icon}
+        </SocialIconLink>
+      ))}
     </Icons>
   );
 };

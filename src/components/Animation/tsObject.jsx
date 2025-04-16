@@ -3,7 +3,7 @@ const currentTheme = 'dark';
 export const tsObject = {
   background: {
     color: { 
-      value: currentTheme === 'light' ? 'transparent' : '#121212' // Light theme: transparent, Dark theme: dark color
+      value: currentTheme === 'light' ? 'transparent' : '#121212' 
     },
   },
   fpsLimit: 120,

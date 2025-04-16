@@ -13,14 +13,17 @@ import FloatingActions from "./FloatingActions";
 import About from "./section/About";
 import { Skills } from "./section/Skills";
 import { Project } from "./section/Project";
+import { useThemeStyles } from "./hook/useThemeStyles";
 
 export const AppLayout = () => {
   const dispatch = useDispatch();
   const expanded = useSelector((state) => state.sidebar.expanded);
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light";
+  const themeStyles = useThemeStyles(); 
   const sidebarRef = useRef(null);
   const [activeSection, setActiveSection] = useState("home");
+
+  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
+  const theme = isDarkTheme ? "dark" : "light";
 
   const handleToggle = () => dispatch(toggleTheme());
 
@@ -38,27 +41,21 @@ export const AppLayout = () => {
     );
 
     sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
   return (
     <div
-      className={`relative min-h-screen ${
-        theme === "dark" ? "bg-[#1d232a] text-[#f5f5f5]" : "bg-white text-gray-900"
-      }`}
+      className={`relative min-h-screen ${themeStyles.bgColor} ${themeStyles.textColor}`}
     >
       {/* Header */}
       <header
-        className={`fixed top-0 left-0  w-full h-[60px] md:h-[52px]  flex justify-between ${
-          theme === "dark" ? "bg-black border-[#262626]" : "bg-white border-[#dbdbdb]"
-        } items-center px-4 md:px-8  z-50 border-b  `}
+        className={`fixed top-0 left-0 w-full h-[60px] md:h-[52px] flex justify-between ${theme === "light" ? "bg-white" : "bg-black"} items-center px-4 md:px-8 z-50 border-b ${
+          themeStyles.iconColors.FooterBG
+        } ${themeStyles.borderColor}`}
       >
         <a href={PORTFOLIO_URL} className="text-2xl font-thin decoration-none">
-          <code>&lt;Tarun B/&gt;
-          </code>
+          <code>&lt;Tarun B/&gt;</code>
         </a>
 
         {/* Desktop Nav */}
@@ -71,9 +68,7 @@ export const AppLayout = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
               className={`flex items-center font-thin px-4 py-2 rounded-lg font-medium cursor-pointer transition-all duration-300 ${
-                 theme === "dark"
-                  ? "text-gray-200 hover:bg-gray-700 hover:text-blue-400"
-                  : "text-gray-800 hover:bg-gray-200 hover:text-blue-600"
+                themeStyles.linkColor
               }`}
             >
               <item.icon className="w-5 h-5 mr-2" />
@@ -86,10 +81,7 @@ export const AppLayout = () => {
         {/* Mobile Nav Toggle */}
         <div className="md:hidden flex items-center gap-2">
           <ThemeControllerButton handleToggle={handleToggle} />
-          <button
-            className="p-2 rounded-lg"
-            onClick={() => dispatch(toggleSidebar())}
-          >
+          <button className="p-2 rounded-lg" onClick={() => dispatch(toggleSidebar())}>
             {expanded ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -108,7 +100,7 @@ export const AppLayout = () => {
         ref={sidebarRef}
         className={`fixed top-[60px] left-0 w-full transform transition-transform duration-300 md:hidden z-50 ${
           expanded ? "translate-x-0" : "-translate-x-full"
-        } ${theme === "light" ? "bg-white text-gray-900" : "bg-gray-900 text-white"}`}
+        } ${themeStyles.bgColor} ${themeStyles.textColor}`}
       >
         <nav className="flex flex-col p-4 gap-3">
           {navMenuList.map((item, index) => (
@@ -119,7 +111,9 @@ export const AppLayout = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
               className={`cursor-pointer hover:underline ${
-                activeSection === item.hrefText ? "text-blue-500 font-semibold" : ""
+                activeSection === item.hrefText
+                  ? "text-blue-500 font-semibold"
+                  : themeStyles.textColor
               }`}
             >
               {item.displayText}
@@ -129,7 +123,7 @@ export const AppLayout = () => {
       </aside>
 
       {/* Page Sections */}
-      <main className="pt-[60px] md:pt-[10px] ">
+      <main className="pt-[60px] md:pt-[10px]">
         <section id="home" className="relative">
           <Home />
         </section>
@@ -148,7 +142,7 @@ export const AppLayout = () => {
       </main>
 
       {/* Floating Actions */}
-      <FloatingActions theme={theme} />
+      <FloatingActions />
     </div>
   );
 };

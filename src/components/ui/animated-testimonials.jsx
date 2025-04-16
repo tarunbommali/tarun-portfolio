@@ -33,7 +33,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
 
     <>
     
-    <div className="flex justify-center items-center font-light text-center mb-5 text-md md:text-2xl">
+    <div className="flex justify-center items-center font-light text-center mb-5 text-md md:text-lg">
         <h1 className="border-b-2 pb-2 border-blue-500">Testimonials</h1>
       </div>
       
@@ -78,7 +78,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
           >
-            <h3 className={`text-2xl font-bold ${theme === "dark" ? "text-white" : "text-black"}`}>
+            <h3 className={`text-md md:text-lg font-bold ${theme === "dark" ? "text-white" : "text-black"}`}>
               {testimonials[active].name}
             </h3>
             <p className={`text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-500"}`}>

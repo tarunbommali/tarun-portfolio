@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -9,30 +8,11 @@ import TypewriterComponent from "../components/Animation/TypeWrite";
 import { WHATSAPP_URL, RESUME_DOWNLOAD_LINK } from "../utils/constants";
 import SocialMenu from "../components/global/SocialMenu";
 import { tsObject } from "../components/Animation/tsObject";
+import { useThemeStyles } from "../hook/useThemeStyles";
 
 const Home = () => {
   const [init, setInit] = useState(false);
-  const isDarkTheme = useSelector((state) => state.theme.isDarkTheme);
-  const theme = isDarkTheme ? "dark" : "light";
-
-  const themeStyles = {
-    light: {
-      textColor: "text-gray-900",
-      headingColor: "text-blue-600",
-      btnPrimary: "bg-blue-500 hover:bg-blue-600 text-white",
-      btnSecondary: "bg-gray-700 hover:bg-gray-800 text-white",
-      bgColor: "bg-gray-100",
-      particleColor: "#000000",
-    },
-    dark: {
-      textColor: "text-white",
-      headingColor: "text-blue-400",
-      btnPrimary: "bg-green-500 hover:bg-green-600 text-white",
-      btnSecondary: "bg-gray-500 hover:bg-gray-600 text-white",
-      bgColor: "bg-gray-900",
-      particleColor: "#ffffff",
-    },
-  };
+  const themeStyles = useThemeStyles(); // ✅ use hook
 
   // Initialize tsparticles
   useEffect(() => {
@@ -45,7 +25,7 @@ const Home = () => {
 
   return (
     <div
-      className={`md:min-h-screen w-full p-11 overflow-hidden ${themeStyles[theme].bgColor} transition-colors duration-300`}
+      className={`md:min-h-screen w-full p-11 overflow-hidden ${themeStyles.bgColor} transition-colors duration-300`}
     >
       {/* Particle Background */}
       {init && (
@@ -57,7 +37,7 @@ const Home = () => {
       )}
 
       {/* Hero Content */}
-      <div className="relative z-10 flex flex flex-col lg:flex-row md:justify-center items-center min-h-screen text-center sm:px-10">
+      <div className="relative z-10 flex flex-col lg:flex-row md:justify-center items-center min-h-screen text-center sm:px-10">
         <motion.img
           alt="profile"
           src={PROFILE_IMG}
@@ -70,11 +50,11 @@ const Home = () => {
 
         {/* Text Content */}
         <div className="flex flex-col justify-center w-full m-4 py-8 mx-8 mt-8 lg:w-auto text-left">
-          <h1 className={`sm:3xl  md:text-5xl ${themeStyles[theme].textColor}`}>
+          <h1 className={`sm:3xl md:text-5xl ${themeStyles.textColor}`}>
             ꫝꫀꪗ, ꫝⅈ!
           </h1>
           <h1
-            className={`sm:3xl  md:text-5xl font-bold py-2 ${themeStyles[theme].headingColor}`}
+            className={`sm:3xl md:text-5xl font-bold py-2 ${themeStyles.headingColor}`}
           >
             I AM, TARUN BOMMALI.
           </h1>
@@ -91,7 +71,7 @@ const Home = () => {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className={`rounded-md py-2 px-5 font-semibold transition-all duration-200 hover:scale-110 ${themeStyles[theme].btnPrimary}`}
+                className={`rounded-md py-2 px-5 font-semibold transition-all duration-200 hover:scale-110 ${themeStyles.btn.primary}`}
               >
                 Engage me
               </a>
@@ -99,7 +79,7 @@ const Home = () => {
                 href={RESUME_DOWNLOAD_LINK}
                 target="_blank"
                 rel="noreferrer"
-                className={`rounded-md py-2 px-5 font-semibold transition-all duration-200 ${themeStyles[theme].btnSecondary}`}
+                className={`rounded-md py-2 px-5 font-semibold transition-all duration-200 ${themeStyles.btn.secondary}`}
               >
                 View Resume
               </a>
