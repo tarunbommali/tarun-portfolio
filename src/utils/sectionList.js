@@ -14,6 +14,7 @@ export const sectionList = [
     sectionID: "home",
     component: Home,
     icon: GoHomeFill,
+    subSection: 1
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export const sectionList = [
     sectionID: "skills",
     component: Skills,
     icon: FiAward,
+    subSection: 2
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const sectionList = [
     sectionID: "projects",
     component: Project,
     icon: GoProjectRoadmap,
+    subSection: 2
   },
   {
     id: 4,
@@ -35,5 +38,6 @@ export const sectionList = [
     sectionID: "about",
     component: About,
     icon: IoIosDocument,
+    subSection: 4
   },
 ];

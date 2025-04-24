@@ -10,3 +10,48 @@
     }
   }
   
+
+  .glitch-text {
+    font-size: 5rem;
+    font-weight: bold;
+    position: relative;
+    color: #fff;
+    animation: glitch 2s infinite;
+    display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text); /* <-- Match actual text */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    color: #ff005e;
+    clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+    animation: glitch 2s infinite;
+    pointer-events: none;
+}
+
+.glitch-text::after {
+    color: #00d4ff;
+    clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+    0%, 100% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(2px, -2px);
+    }
+    60% {
+        transform: translate(-1px, 1px);
+    }
+    80% {
+        transform: translate(1px, -1px);
+    }
+}

@@ -18,34 +18,44 @@ export const BentoGrid = ({ className, children }) => {
     </div>
   );
 };
-
-export const BentoGridItem = ({ className, title, description, header }) => {
+export const BentoGridItem = ({
+  className,
+  title,
+  description,
+  header,
+  bgVectorUrl,
+}) => {
   const { bgColor, textColor, borderColor, shadowColor } = useThemeStyles();
 
   return (
     <div
       className={cn(
-        "group/bento shadow-input row-span-1 flex flex-col justify-between space-y-4 rounded-xl border p-4 transition duration-200 hover:shadow-xl",
-        borderColor, // Using borderColor from the theme
-        shadowColor, // Using shadowColor from the theme
-        bgColor, // Using bgColor from the theme
-        textColor, // Using textColor from the theme
+        "group/bento shadow-input flex flex-col overflow-hidden rounded-xl border transition duration-200 hover:shadow-xl",
+        borderColor,
+        shadowColor,
+        bgColor,
+        textColor,
         className
       )}
     >
-      {header}
-      <div className="transition duration-200 group-hover/bento:translate-x-2">
-        <div
-          className={`mt-2 mb-2 font-sans font-bold ${textColor}`} // Dynamic text color based on theme
-        >
+      {/* 🔷 Top Section with responsive background image */}
+      <div
+        className="w-full h-40 sm:h-48 md:h-52 lg:h-56 xl:h-60 bg-no-repeat bg-contain bg-white bg-center flex items-center justify-center"
+        style={{ backgroundImage: `url(${bgVectorUrl})` }}
+      >
+        {header}
+      </div>
+
+      {/* 🔷 Bottom Section with responsive text layout */}
+      <div className="p-4 space-y-1 transition duration-200 group-hover/bento:translate-x-2">
+        <div className={`text-base font-thin font-sans ${textColor}`}>
           {title}
         </div>
-        <div
-          className={`font-sans text-xs font-normal ${textColor}`} // Dynamic text color based on theme
-        >
+        <div className={`text-sm font-light font-sans ${textColor}`}>
           {description}
         </div>
       </div>
     </div>
   );
 };
+

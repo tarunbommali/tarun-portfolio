@@ -41,7 +41,7 @@ const Home = () => {
         <motion.img
           alt="profile"
           src={PROFILE_IMG}
-          className="w-33 h-33 md:w-54 md:h-54 lg:w-64 lg:h-64 rounded-full shadow-2xl z-10 relative object-cover"
+          className="w-30 h-30 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full shadow-2xl z-10 relative object-cover"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

@@ -10,10 +10,10 @@ const TechnicalSkills = ({ skills }) => {
     <div
       key={index}
       className={`mb-6 rounded-lg p-4 transition-colors duration-300 
-        ${themeStyles.container} ${themeStyles.border} border`} // Apply theme styles directly
+        ${themeStyles.container} ${themeStyles.border} border-2 `} // Apply theme styles directly
     >
       <div
-        className={`text-lg font-semibold p-2 rounded-md mb-2 transition-colors duration-300 ${themeStyles.categoryTitle}`} // Apply categoryTitle style
+        className={`text-lg font-semibold p-2 rounded-md mb-2 transition-colors border-red-800 rounded-none duration-300 ${themeStyles.categoryTitle}`} // Apply categoryTitle style
       >
         {category.category}
       </div>

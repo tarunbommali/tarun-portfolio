@@ -3,53 +3,36 @@ import { PORTFOLIO_URL } from "./utils/constants";
 import { useSelector, useDispatch } from "react-redux";
 import { Menu, X } from "lucide-react";
 import { toggleSidebar } from "./store/sidebarSlice";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, } from "react";
 import { toggleTheme } from "./store/themeSlice";
 import { motion } from "framer-motion";
 import { sectionList } from "./utils/sectionList"; // Import sectionList dynamically
 import { ThemeControllerButton } from "./components/global/ThemeControllerButton";
 import FloatingActions from "./FloatingActions";
 import { useThemeStyles } from "./hook/useThemeStyles";
+import { GoArrowDownRight } from "react-icons/go";
 
 export const AppLayout = () => {
   const dispatch = useDispatch();
   const expanded = useSelector((state) => state.sidebar.expanded);
   const themeStyles = useThemeStyles();
   const sidebarRef = useRef(null);
-  const [activeSection, setActiveSection] = useState("home");
 
   const handleToggle = () => dispatch(toggleTheme());
 
-  useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-    return () => sections.forEach((section) => observer.unobserve(section));
-  }, []);
-
+   
   useEffect(() => {
     if (expanded) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  
+
     // Optional cleanup to ensure body scroll is reset if component unmounts
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [expanded]);
-  
 
   return (
     <div
@@ -59,8 +42,12 @@ export const AppLayout = () => {
       <header
         className={`fixed top-0 left-0 w-full h-[60px] md:h-[52px] flex justify-between ${themeStyles.headerBGColor} items-center px-4 md:px-8 z-50 border-b ${themeStyles.iconColors.FooterBG} ${themeStyles.borderColor}`}
       >
-        <a href={PORTFOLIO_URL} className="text-2xl font-thin decoration-none">
-          <code>&lt;Tarun B/&gt;</code>
+        <a
+          href={PORTFOLIO_URL}
+          className="glitch-text text-2xl font-thin decoration-none relative"
+          data-text="<Tarun.Dev/>"
+        >
+          <code>&lt;Tarun.Dev/&gt;</code>
         </a>
 
         {/* Desktop Nav */}
@@ -104,7 +91,7 @@ export const AppLayout = () => {
       {/* Mobile Sidebar */}
       <aside
         ref={sidebarRef}
-        className={`fixed top-[60px] left-0 w-[90vw] h-full transform transition-transform duration-300 md:hidden z-50 ${
+        className={`fixed top-[60px] left-0 w-[100vw] border-t-2 border-white border-b-2 h-full transform transition-transform duration-300 md:hidden z-50 ${
           expanded ? "translate-x-0" : "-translate-x-full"
         }
           
@@ -112,22 +99,27 @@ export const AppLayout = () => {
       >
         <nav className="flex flex-col p-4 gap-3">
           {sectionList.map((item, index) => (
-           <motion.a
-           key={index}
-           href={`#${item.sectionID}`}
-           initial={{ opacity: 0, scale: 0.5 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.3 }}
-           onClick={() => dispatch(toggleSidebar())}
-           className={`cursor-pointer hover:underline ${
-             activeSection === item.sectionID
-               ? "text-blue-500 font-semibold"
-               : themeStyles.textColor
-           }`}
-         >
-           {item.displayText}
-         </motion.a>
-         
+            <motion.a
+              key={index}
+              href={`#${item.sectionID}`}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => dispatch(toggleSidebar())}
+              className={`flex justify-between cursor-pointer hover:underline my-4 font-thin
+                  themeStyles.textColor
+              `}
+            >
+              <div className="flex items-end gap-2">
+                <span className="text-4xl">{item.displayText}</span>
+                <span className="mx-2 text-lg text-[#3f4347]">
+                  ({item.subSection})
+                </span>
+              </div>
+              <button className="rounded-full w-[40px] h-[40px] border-2 border-white flex items-center justify-center">
+                <GoArrowDownRight />
+              </button>
+            </motion.a>
           ))}
         </nav>
       </aside>
